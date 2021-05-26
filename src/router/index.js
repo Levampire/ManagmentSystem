@@ -48,13 +48,13 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/cadreResult',
     name: 'cadreResult',
-    meta: { title: '查看考核结果', icon: 'dashboard' },
+    meta: { title: '查看考核结果', icon: 'el-icon-s-management'},
     children: [
       {
         path: 'cadreResult',
         name: 'cadreResult',
         component: () => import('@/views/resultCheck/cadreResult/index'),
-        meta: { title: '干部考核结果  ', icon: 'el-icon-s-data' }
+        meta: { title: '干部考核结果  ', icon: 'el-icon-s-order' }
       },
       {
         path: 'cadreDetail',
@@ -82,6 +82,27 @@ export const constantRoutes = [
         name: 'leadingGroup',
         component: () => import('@/views/resultCheck/leadingGroup/index'),
         meta: { title: '领导班子考核结果', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/chart',
+    component: Layout,
+    redirect: '/chart/cadreChart',
+    name: 'cadreChart',
+    meta: { title: '统计表格查看', icon: 'el-icon-s-marketing' },
+    children: [
+      {
+        path: 'cadreChart',
+        name: 'cadreChart',
+        component: () => import('@/views/chart/cadre.vue'),
+        meta: { title: '干部考核统计  ', icon: 'el-icon-s-data' }
+      },
+      {
+        path: 'leadingGroupChart',
+        name: 'leadingGroupChart',
+        component: () => import('@/views/chart/leadingGroup'),
+        meta: { title: '领导班子统计', icon: 'el-icon-s-data' }
       }
     ]
   },
@@ -196,7 +217,7 @@ export const constantRoutes = [
       }
     ]
   },
-  // 404页面必须放在路由最终
+  // 404重定向必须放在路由最终
   { path: '*', redirect: '/404', hidden: true }
 ]
 
