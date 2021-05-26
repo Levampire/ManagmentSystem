@@ -40,12 +40,7 @@ export default {
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id))
       const xData = (function() {
-        const data = []
-        for (let i = 1; i < 4; i++) {
-          const name = i === 1 ? '优秀' : [i === 2 ? '良好' : '不合格']
-          data.push(name)
-        }
-        return data
+        return ['优秀', '良好','合格',  '不及格']
       }())
       this.chart.setOption({
         backgroundColor: '#344b58',
@@ -84,6 +79,8 @@ export default {
               str += `<br>外国语学院<br>`
             } else if (title === '不合格') {
               str += `<br>宣传部<br>`
+            }else if (title === '合格') {
+              str += `<br>马克思主义学院<br>`
             }
             return title + str
           }
@@ -192,7 +189,7 @@ export default {
           name: '人数',
           type: 'bar',
           stack: 'total',
-          barMaxWidth: 35,
+          barMaxWidth: 80,
           barGap: '10%',
           itemStyle: {
             normal: {
@@ -212,34 +209,10 @@ export default {
           data: [
             80,
             90,
+            20,
             5
           ],
           yAxisIndex: '0'
-        }, {
-          name: '平均分',
-          type: 'line',
-          stack: 'total',
-          symbolSize: 10,
-          itemStyle: {
-            normal: {
-              color: 'rgba(252,230,48,1)',
-              barBorderRadius: 0,
-              label: {
-                show: true,
-                position: 'top',
-                formatter(p) {
-                  return p.value > 0 ? p.value : ''
-                }
-              }
-            }
-          },
-          // avarage数据
-          data: [
-            '95',
-            '78',
-            '58'
-          ],
-          yAxisIndex: 1
         }
         ]
       })

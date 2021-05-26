@@ -40,12 +40,7 @@ export default {
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id))
       const xData = (function() {
-        const data = []
-        for (let i = 1; i < 4; i++) {
-          const name = i === 1 ? '优秀' : [i === 2 ? '良好' : '不合格']
-          data.push(name)
-        }
-        return data
+        return ['优秀', '良好','合格', '不及格']
       }())
       this.chart.setOption({
         backgroundColor: '#344b58',
@@ -123,26 +118,26 @@ export default {
           splitArea: {
             show: false
           }
-        }, { // 第二个y轴在右侧
-          name: '平均分数',
-          type: 'value',
-          splitLine: {
-            show: false
-          },
-          axisLine: {
-            lineStyle: {
-              color: '#90979c'
-            }
-          },
-          axisTick: {
-            show: false
-          },
-          axisLabel: {
-            interval: 0
-          },
-          splitArea: {
-            show: false
-          }
+        // }, { // 第二个y轴在右侧
+        //   name: '平均分数',
+        //   type: 'value',
+        //   splitLine: {
+        //     show: false
+        //   },
+        //   axisLine: {
+        //     lineStyle: {
+        //       color: '#90979c'
+        //     }
+        //   },
+        //   axisTick: {
+        //     show: false
+        //   },
+        //   axisLabel: {
+        //     interval: 0
+        //   },
+        //   splitArea: {
+        //     show: false
+        //   }
         }],
         dataZoom: [{
           show: true,
@@ -174,7 +169,7 @@ export default {
           name: '人数',
           type: 'bar',
           stack: 'total',
-          barMaxWidth: 35,
+          barMaxWidth: 80,
           barGap: '10%',
           itemStyle: {
             normal: {
@@ -194,34 +189,10 @@ export default {
           data: [
             80,
             90,
+            20,
             5
           ],
           yAxisIndex: '0'
-        }, {
-          name: '平均分',
-          type: 'line',
-          stack: 'total',
-          symbolSize: 10,
-          itemStyle: {
-            normal: {
-              color: 'rgba(252,230,48,1)',
-              barBorderRadius: 0,
-              label: {
-                show: true,
-                position: 'top',
-                formatter(p) {
-                  return p.value > 0 ? p.value : ''
-                }
-              }
-            }
-          },
-          // avarage数据
-          data: [
-            '95',
-            '78',
-            '58'
-          ],
-          yAxisIndex: 1
         }
         ]
       })
