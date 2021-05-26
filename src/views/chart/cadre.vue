@@ -166,7 +166,7 @@ export default {
           end: 35
         }],
         series: [{
-          name: '人数',
+          name: '数量',
           type: 'bar',
           stack: 'total',
           barMaxWidth: 80,

@@ -138,27 +138,29 @@ export default {
           splitArea: {
             show: false
           }
-        }, { // 第二个y轴在右侧
-          name: '平均分数',
-          type: 'value',
-          splitLine: {
-            show: false
-          },
-          axisLine: {
-            lineStyle: {
-              color: '#90979c'
-            }
-          },
-          axisTick: {
-            show: false
-          },
-          axisLabel: {
-            interval: 0
-          },
-          splitArea: {
-            show: false
-          }
-        }],
+        },
+          // { // 第二个y轴在右侧
+          // name: '平均分数',
+          // type: 'value',
+          // splitLine: {
+          //   show: false
+          // },
+          // axisLine: {
+          //   lineStyle: {
+          //     color: '#90979c'
+          //   }
+          // },
+          // axisTick: {
+          //   show: false
+          // },
+          // axisLabel: {
+          //   interval: 0
+          // },
+          // splitArea: {
+          //   show: false
+          // }
+        //}
+        ],
         dataZoom: [{
           show: true,
           height: 30,
@@ -186,7 +188,7 @@ export default {
           end: 35
         }],
         series: [{
-          name: '人数',
+          name: '数量',
           type: 'bar',
           stack: 'total',
           barMaxWidth: 80,
